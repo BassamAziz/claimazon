@@ -85,6 +85,7 @@ the api is ready to be consumed by any client
   }
 }
 ```
+
 - For fetching one product and its details using the product id, use the following query
 
 ```
