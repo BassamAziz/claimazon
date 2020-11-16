@@ -1,16 +1,16 @@
 # README
 
-About
+### About
 
 The solution provided is an API to list all products or show a single product in a json format
 the api is ready to be consumed by any client
 
- ### Problem Analysis:
+ ## Problem Analysis (Follow Up Questions):
  
     Due to the amount of nested data that need to be fetched from across multiple tables in a single endpoint call,
     it was decided to use a GraphQL API, as it helps avoiding the N+1 problem that would be presented in case of using REST.
     In addition, and based on the given fact that the API is likely to change in the near future, GraphQL provides the flexibility to alter underlaying layers of       the API without affecting the response provided by the endpoint and it's up to the client to define the exact data and format desired.
-
+ 
  ### Database Model:
 
     1. product
@@ -19,9 +19,7 @@ the api is ready to be consumed by any client
     4. prodcut_tag - a join table between products and tags
     5. recommendation - belongs to a product
 
-
-
-### Yet TO DO:
+### TO DO (improvements for a more production ready and a scalable product):
   - Tests to be added:
     1. unit tests for the models
     2. integration tests for the endpoints
@@ -53,5 +51,68 @@ the api is ready to be consumed by any client
 
 * How to run the test suite
   - run `rspec`
+
+### Experiment it
+
+1. start the server by running the commmand `rails s`
+2. go to the url: http://localhost:3000/graphiql
+3. you shall see the graphql api playground
+4. run queries:
+ - For fetching all products, copy and paste this query in the left side textbox:
+ ```
+ {
+  products {
+    sku
+    author
+    title
+    description
+    thumbnail
+    image
+    price_cents
+    price_currency
+    items_in_stock
+    rating
+    tags {
+      id
+      name
+    }
+    reviews {
+      id
+      message
+      rating
+    }
+    recommendations
+  }
+}
+```
+- For fetching one product and its details using the product id, use the following query
+
+```
+{
+  product(id: 2) {
+    sku
+    author
+    title
+    description
+    thumbnail
+    image
+    price_cents
+    price_currency
+    items_in_stock
+    rating
+    tags {
+      id
+      name
+    }
+    reviews {
+      id
+      message
+      rating
+    }
+    recommendations
+  }
+}
+```
+
 
 
