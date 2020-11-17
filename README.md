@@ -31,6 +31,7 @@ the api is ready to be consumed by any client
 ### Getting started
 
 * Ruby version
+
   2.5.1
   
 * System dependencies
@@ -40,6 +41,7 @@ the api is ready to be consumed by any client
   run `bundle install`
 
 * Database creation
+  
   default database configuration can be found in database.yml
   
   `url: postgres://postgres:@localhost:5432`
@@ -47,9 +49,11 @@ the api is ready to be consumed by any client
   configure your database accordingly or feel free to change the url above
 
 * Database initialization
+
   run `rails db:reset`
 
 * How to run the test suite
+
   - run `rspec`
 
 ### Experiment it
